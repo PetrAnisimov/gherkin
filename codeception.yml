@@ -1,0 +1,56 @@
+actor_suffix: AcceptanceTester
+
+paths:
+#   Место где хранятся тесты
+    tests: tests
+
+#   Место где хранятся выходные данные
+    output: tests/_output
+
+#   Место где хранятся стуктуры папок
+    data: tests/_data
+
+#   Место где хранится дополнительный код для тестов
+    support: tests/_support
+
+#   Место где хранятся конфигурации
+    envs: tests/_envs
+
+settings:
+#   Проверка синтаксиса тестов перед загрузкой
+    lint: true
+
+#   Рандомизировать последовательность запуска тестов
+    shuffle: false
+
+#   Для цветного вывода
+    colors: true
+
+#   Ограничение памяти выделяемой на тесты (для улучшения производительности)
+#    memory_limit: 1024M
+
+# RunFailed - запуск последних проваленных тестов
+# Recorder - запись всех действий (включать только локально)
+
+extensions:
+  enabled:
+    - Codeception\Extension\RunFailed
+    - Yandex\Allure\Codeception\AllureCodeception
+    - Codeception\Extension\Recorder
+  config:
+    Yandex\Allure\Codeception\AllureCodeception:
+      deletePreviousResults: true
+      outputDirectory: allure-results
+      ignoredAnnotations:
+        - env
+        - dataprovider
+
+params:
+    - env
+
+gherkin: []
+
+#   Запуск extension eventListener (Listener.php)
+#bootstrap: _bootstrap.php
+
+error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"

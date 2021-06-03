@@ -1,0 +1,30 @@
+{
+    "name": "mygento/regression",
+    "license": "proprietary",
+    "description": "AutoTest Runner",
+    "authors": [
+        {
+            "name": "Nikita Tarasov",
+            "email": "nikita@mygento.ru"
+        }
+    ],
+    "config": {
+        "platform": {
+            "php": "7.1.7"
+        }
+    },
+    "require": {
+        "codeception/codeception": "^3.0.2",
+        "allure-framework/allure-codeception": "^1.4.0",
+        "mygento/coding-standard": "^2.13.5",
+        "symfony/event-dispatcher": "4.4.*",
+        "behat/gherkin": "^4.4.0",
+        "phpstan/phpstan": "^0.12.18",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "CustomHelper\\": "helper/"
+        }
+    }
+}

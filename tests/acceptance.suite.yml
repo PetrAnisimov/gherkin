@@ -1,0 +1,117 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+actor: AcceptanceTester
+modules:
+  enabled:
+    - WebDriver
+    - \Helper\Acceptance
+    - Asserts
+    - REST:
+        depends: PhpBrowser
+        shortDebugResponse: 300
+  config:
+    WebDriver:
+      url: 'https://mygento.ru/'
+      window_size: 1920x1080
+      browser: chrome
+      port: 9515 # chrome 9515 firefox 4444
+      wait: 3
+      debug_log_entries: 200
+
+step_decorators:
+  - \Codeception\Step\TryTo
+  - \Codeception\Step\Retry
+  - \Codeception\Step\ConditionalAssertion
+
+env:
+  chrome:
+    modules:
+      config:
+        WebDriver:
+          browser: chrome
+          capabilities:
+            chromeOptions:
+              w3c: false
+              args:
+                - "user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36"
+                - "--disable-blink-features=AutomationControlled"
+    extensions:
+      enabled:
+        - Codeception\Extension\RunProcess:
+            0: chromedriver --url-base=/wd/hub
+            sleep: 5
+
+  chromeheadless:
+    modules:
+      config:
+        WebDriver:
+          browser: chrome
+          capabilities:
+            pageLoadStrategy: 'eager'
+            chromeOptions:
+              args: ["--headless",
+                     "--disable-gpu",
+                     "--no-sandbox",
+                     "--enable-automation",
+                     "--disable-dev-shm-usage",
+                     "--disable-browser-side-navigation",
+                     "--dns-prefetch-disable",
+                     "--disable-dev-shm-usage",
+                     "--disable-blink-features=AutomationControlled",
+                     "user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36"]
+              w3c: false
+    extensions:
+      enabled:
+        - Codeception\Extension\RunProcess:
+            0: chromedriver --url-base=/wd/hub
+            sleep: 5
+
+  firefox:
+    modules:
+      config:
+        WebDriver:
+          port: 4444
+          path: ''
+          browser: firefox
+          capabilities:
+            binary: '/usr/bin/firefox'
+            firefoxOptions:
+              args:
+                - "user-agent=Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:73.0) Gecko/20100101 Firefox/73.0"
+    extensions:
+      enabled:
+        - Codeception\Extension\RunProcess:
+            0: geckodriver
+            sleep: 5
+
+  firefoxheadless:
+    modules:
+      config:
+        WebDriver:
+          port: 4444
+          path: ''
+          capabilities:
+            binary: '/usr/bin/firefox'
+            firefoxOptions:
+              args: ["--headless"]
+    extensions:
+      enabled:
+        - Codeception\Extension\RunProcess:
+            0: geckodriver
+            sleep: 5
+
+gherkin:
+  contexts:
+    default:
+      - \AcceptanceTester
+      - \Codeception\Scenario
+      - \Helper\Acceptance
+    tag:
+      loginTag:
+        - \PageGher\LoginGher
+      checkinfoTag:
+        - \PageGher\CheckInfoGher

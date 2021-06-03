@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alr:test-suite xmlns:alr="urn:model.allure.qatools.yandex.ru" start="1622725728839" stop="1622725760620" version="1.4.0">
+  <name>acceptance (chromeheadless)</name>
+  <test-cases>
+    <test-case start="1622725733846" stop="1622725760568" status="passed">
+      <name>checkReward</name>
+      <steps>
+        <step start="1622725734092" stop="1622725734093" status="passed">
+          <name>  login </name>
+        </step>
+        <step start="1622725734104" stop="1622725734104" status="passed">
+          <name>  click to link my bonuses </name>
+        </step>
+        <step start="1622725734113" stop="1622725734113" status="passed">
+          <name>  see the bonuses </name>
+        </step>
+        <step start="1622725734121" stop="1622725734121" status="passed">
+          <name>i log in to the site, i need to prepare acceptance tester, acceptance, and scenario </name>
+        </step>
+        <step start="1622725734125" stop="1622725734126" status="passed">
+          <name>env validate "checkReward"</name>
+        </step>
+        <step start="1622725734239" stop="1622725734239" status="passed">
+          <name>env parse </name>
+        </step>
+        <step start="1622725734346" stop="1622725739043" status="passed">
+          <name>am on url "https://nsp:mygento@nsp•mygento•net/ru"</name>
+        </step>
+        <step start="1622725739512" stop="1622725744355" status="passed">
+          <name>am on url "https://nsp•mygento•net/ru"</name>
+        </step>
+        <step start="1622725744907" stop="1622725744907" status="passed">
+          <name>account is logged </name>
+        </step>
+        <step start="1622725744974" stop="1622725745012" status="passed">
+          <name>wait for js "return document•readyState == "complete"",2</name>
+        </step>
+        <step start="1622725745639" stop="1622725745754" status="passed">
+          <name>wait for element clickable "div•header-welcome",25</name>
+        </step>
+        <step start="1622725746261" stop="1622725746322" status="passed">
+          <name>click "div•header-welcome"</name>
+        </step>
+        <step start="1622725746785" stop="1622725746785" status="passed">
+          <name>inserting the field </name>
+        </step>
+        <step start="1622725746786" stop="1622725746788" status="passed">
+          <name>wait for js "return document•readyState == "complete"",5</name>
+        </step>
+        <step start="1622725747167" stop="1622725750224" status="passed">
+          <name>see page has element "•authorization-link •customer-nav-link"</name>
+        </step>
+        <step start="1622725750603" stop="1622725750887" status="passed">
+          <name>wait for text "Если у вас уже есть аккаунт, пожалуйста, войдите•",25</name>
+        </step>
+        <step start="1622725751230" stop="1622725751265" status="passed">
+          <name>grab value from "input[name='login[username]']"</name>
+        </step>
+        <step start="1622725751618" stop="1622725751688" status="passed">
+          <name>fill field "input[name='login[username]']","tuzege@4alphapro•com"</name>
+        </step>
+        <step start="1622725752053" stop="1622725752136" status="passed">
+          <name>fill field "input[name='login[password]']","Test2018"</name>
+        </step>
+        <step start="1622725752528" stop="1622725752546" status="passed">
+          <name>wait for element clickable "#send2",15</name>
+        </step>
+        <step start="1622725752902" stop="1622725754736" status="passed">
+          <name>click "#send2"</name>
+        </step>
+        <step start="1622725754977" stop="1622725755280" status="passed">
+          <name>wait for js "return document•readyState == "complete"",60</name>
+        </step>
+        <step start="1622725755440" stop="1622725755468" status="passed">
+          <name>wait for text "ПАНЕЛЬ УПРАВЛЕНИЯ",20,"#element &gt; div•headline•main &gt; div"</name>
+        </step>
+        <step start="1622725755642" stop="1622725755642" status="passed">
+          <name>i am in account i click to link </name>
+        </step>
+        <step start="1622725755645" stop="1622725759911" status="passed">
+          <name>click null</name>
+        </step>
+      </steps>
+      <labels>
+        <label name="loginTag" value="feature"/>
+      </labels>
+    </test-case>
+  </test-cases>
+</alr:test-suite>

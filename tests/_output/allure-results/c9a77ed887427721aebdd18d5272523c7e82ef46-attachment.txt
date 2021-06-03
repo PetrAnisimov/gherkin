@@ -1,0 +1,1 @@
+/home/hamster/Desktop/regression/tests/_output/AccountInfoCest.changeTelephoneTest.fail.html
